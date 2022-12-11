@@ -1,4 +1,7 @@
 import './App.css';
+import AnimalCard from './pages/AnimalCard';
+import Data from './components/Data';
+import Instructions from './components/Instructions';
 
 function App() {
   const greetings = "Hello, World"
@@ -25,6 +28,9 @@ function App() {
     <div className='container'>
     <h1>{greetings}</h1>
    {displayAction && <p>I'm writing JSX</p> }
+
+   <Instructions />
+
     <ul>
       {
         emojis.map(emoji => (
@@ -36,6 +42,15 @@ function App() {
         ))
       }
      </ul>
+     <h1>Animals</h1>
+     {Data.map(animal=>(
+      <AnimalCard 
+      key={animal.name}
+      name= {animal.name}
+      scientificName={animal.scientificName}
+      size={animal.size}
+      />
+     ))}
     </div>
   
   )
